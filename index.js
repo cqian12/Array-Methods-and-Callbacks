@@ -79,17 +79,12 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 
 function getWinnersByYear(array, yearsCB, winnersCB) {
-    let results = yearsCB(array).map(item => `In ${item}, `)
+    let results = yearsCB(array,getFinals).map((year,index) => `In ${year}, ${winnersCB(array,getFinals)[index]} won the world cup!`)
     
-    // let winners = winnersCB(array)
-
-    // for (let i = 0; i < winners.length; i++) {
-    //     results.push(`In ${years[i]}, ${winners[i]} won the world cup!`)
-    // }
     return results
 }
 
-console.log('task 5',getWinnersByYear(fifaData,getYears,getWinnersByYear))
+console.log('task 5',getWinnersByYear(fifaData,getYears,getWinners))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher order function getAverageGoals to do the following: 
